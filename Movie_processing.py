@@ -35,4 +35,9 @@ def find_BBox(path):
     cv2.destroyAllWindows()
 
 path = sys.argv[1]
-find_BBox(path)
+video = cv2.VideoCapture(path)
+while(video.isOpened()):
+    ret,cap = video.read()
+    cv2.imshow("movie",cap)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
